@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="container">
+    <div style="text-align:center">
+        <h2>Users detail</h2>
+
+    </div>
+    <div class="row">
+        <table class="table table-striped table-hover">
+            <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Image</th>
+            <th>Update</th>
+            <th>delete</th>
+
+            </thead>
+            {% for  data in user_obj %}
+            <tr>
+                <td>{{data.first_name}}</td>
+                <td>{{data.last_name}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.mob}}</td>
+                <td><img src="{{data.profile_pic.url}}" height="100" width="100"></td>
+                <td><a href="{% url 'update_user' data.id %}" class="btn btn-primary">Update</a></td>
+                <td><a href="{% url 'delete_user' data.id %}" class="btn btn-danger">Delete</a></td>
+
+
+            </tr>
+            {% endfor %}
+            <tbody>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+{% endblock %}

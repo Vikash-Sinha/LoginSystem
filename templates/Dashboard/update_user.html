@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h1 class="panel-title" style="text-align:center;">Register New User</h1>
+						<h2 style="color:red; text-align:center;">{{error}}</h2>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form role="form" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+
+			                <input type="text" name="first_name" id="first_name" value="{{user_obj.first_name}}" class="form-control input-sm" placeholder="First Name">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="text" name="last_name" id="last_name" value="{{user_obj.last_name}}" class="form-control input-sm" placeholder="Last Name">
+			    					</div>
+			    				</div>
+			    			</div>
+
+			    			<div class="form-group">
+			    				<input type="email" name="username" id="email" value="{{user_obj.email}}" class="form-control input-sm" placeholder="Email Address">
+			    			</div>
+							<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-12">
+			    					<div class="form-group">
+			                <input type="tel" name="mob" id="mob" value="{{user_obj.mob}}" class="form-control input-sm" placeholder="Enter Mobile No:">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-4">
+			    					<div class="form-group">
+										<label for="profile_pic" >Profile Image</label>
+			    						<input type="file" name="profile_pic" value="{{user_obj.profile_pic}}" id="profile_pic" class="form-control input-sm">
+<!--			    						<input type="text" name="" value="{{user_obj.profile_pic}}"  class="form-control input-sm">-->
+
+									</div>
+			    				</div>
+								<div class="col-xs-6 col-sm-6 col-md-4">
+			    					<div class="form-group">
+										<img src="{{ user_obj.profile_pic.url }}" width="200" height="200">
+
+									</div>
+			    				</div>
+			    			</div>
+
+<!--			    			<div class="row">-->
+<!--			    				<div class="col-xs-6 col-sm-6 col-md-6">-->
+<!--			    					<div class="form-group">-->
+<!--			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">-->
+<!--			    					</div>-->
+<!--			    				</div>-->
+<!--			    				<div class="col-xs-6 col-sm-6 col-md-6">-->
+<!--			    					<div class="form-group">-->
+<!--			    						<input type="password" name="confirm_password" id="confirm_password" class="form-control input-sm" placeholder="Confirm Password">-->
+<!--			    					</div>-->
+<!--			    				</div>-->
+<!--			    			</div>-->
+
+			    			<input type="submit" value="Register" class="btn btn-info btn-block">
+
+			    		</form>
+			    	</div>
+	    		</div>
+
+{% endblock %}
